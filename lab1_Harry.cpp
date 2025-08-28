@@ -32,9 +32,27 @@ int main()
 
     cout<<"------ EXERCISE------"<<endl;
     // declare variables
-    string gender = "M/F";
-    cout<<"Enter a gender "<<endl;
-    cin>> gender;
+    string country;
+    char gender;
+    int zipcode;
+    double rate;
+
+    cout<<"Enter a country "<<endl;
+    cin >> country;
+
+    cout<<"Enter a gender(f for female, m for male, and o for others) "<<endl;
+    cin >> gender;
+
+    cout<<"Enter a zip code "<<endl;
+    cin >> zipcode;
+
+    cout<<"Enter a tax rate "<<endl;
+    cin >> rate;
+
+    cout <<"\nEntered country: \t\t"<<country<<endl;
+    cout <<"\nSelected gender: \t\t"<<gender<<endl;
+    cout <<"\nZip code: \t\t"<<zipcode<<endl;
+    cout <<"\nTax rate: \t\t"<<rate<<endl;
 
     return 0;
 }
