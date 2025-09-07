@@ -79,5 +79,78 @@ int main(){
     cout<<"implicit casting = "<<m<<endl;
 
     cout<<"\n------ EXERCISE ------- "<<endl;
+    //declare variables a and b
+    int a, b;
+    //prompt user for input, an integer for each variable
+    cout<<"Enter the first number (a): ";
+    cin>>a;
+
+    cout<<"Enter the second number (b): ";
+    cin>>b;
+
+    //perform and display the results of arithmetic operations
+    //addition, subtraction, multiplication, division, modulus
+    cout<<"\nArithmetic Operations: "<<endl;
+    cout<<"a + b = "<< ( a + b ) <<endl;
+    cout<<"a - b = "<< ( a - b ) <<endl;
+    cout<<"a * b = "<< ( a * b )<<endl;
+    cout<<"a / b = "<< ( a / b )<<endl;
+    cout<<"a % b = "<< ( a % b )<<endl;
+
+    //apply assignment operators
+    //self-addition, self-subtraction
+    cout<<"\nAfter assignment operations: "<<endl;
+    a += 10;
+    b -= 5;    
+    
+    cout<<"a = "<<a<<endl;
+    cout<<"b = "<<b<<endl;
+
+    
+    cout<<"\nBoolean Operations: "<<endl;
+    //save the conditions true and false t and f for reading output
+    string t = "true";
+    string f = "false";
+    //apply comparison and logical operators
+    //for each boolean inserted are substrings for either true or false
+    //if comparison or logic condition t: t.substr(0, t.length())
+    //if comparison or logic condition f: f.substr(0, f.length())
+    //multiply the length by boolean expression 0 or 1 prints correctly either true or fals
+    cout<<"Is a greater than b? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * (a <= b))<<t.substr(0, t.length() * (a > b)) <<endl;
+    //prints "true" because a > b
+
+    cout<<"Is a equal to b? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * (a != b))<<t.substr(0, t.length() * (a == b)) <<endl;
+    //prints "false" because a != b
+
+    cout<<"Is a not equal to b? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * (a == b))<<t.substr(0, t.length() * (a != b)) <<endl;
+    //prints "true" because a != b
+
+    cout<<"Are both a and b positive? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * !(a > 0 && b > 0))<<t.substr(0, t.length() * (a > 0 && b > 0)) <<endl;
+    //prints "true" because (a > 0 && b > 0)
+
+    cout<<"Is either a or b negative ? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * !(a < 0 || b < 0))<<t.substr(0, t.length() * (a < 0 || b < 0)) <<endl;
+    //prints "false" because !(a > 0 && b > 0)
+
+    cout<<"Is a not greater than b? ";
+    //print "false" if a<=b or empty string
+    //print "true" if a>b or empty string
+    cout<< f.substr(0, f.length() * (a > b ))<<t.substr(0, t.length() * !(a > b)) <<endl;
+    //prints "false" because (a > b)
+
     return 0;
 }
