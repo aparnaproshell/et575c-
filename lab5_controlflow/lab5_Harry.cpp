@@ -5,6 +5,7 @@ Sep 10, 2025
 */
 #include<iostream>
 #include<string>
+#include<iomanip>
 
 using namespace std;
 
@@ -73,8 +74,7 @@ int main(){
 
 
 
-    
-    cout<<"\n ----- EXERCISE ----- "<<endl;
+     cout<<"\n ----- EXERCISE ----- "<<endl;
     // declare variables
     string gpa = "";
     float final_exam = 0;
@@ -91,24 +91,39 @@ int main(){
     cin>>homework;
 
     // calculate the grade = final_exam *0.5 + labs*0.3 + homework*0.2
-    grade = final_exam*0.5 + labs*0.3 + homework*0.2
+    grade = final_exam*0.5 + labs*0.3 + homework*0.2;
   
-    //multiway conditional statement
+    // multiway conditional statement
+    // if grade can be = A it must be between 90 and 100
+    if(grade >= 90 && grade <= 100) { 
+        gpa = "A";
+    }
+    // if grade can be = B it must be between 80 and 89
+    else if(grade >= 80 && grade < 90) { 
+        gpa = "B";
+    }
+    // if grade can be = C it must be between 70 and 79
+    else if(grade >= 70 && grade < 80) { 
+        gpa = "C";
+    }
+    // if grade can be = D it must be between 60 and 69
+    else if(grade >= 60 && grade < 70) { 
+        gpa = "D";
+    }
+    // if grade can be = F it must be less than 60
+    else if(grade < 60) { 
+        gpa = "F";
+    }
+    // handle any other grade values outside the defined ranges
+    else {
+        gpa = "";
+    }
     
-    if( grade: between 100 and 90, GPA = A)
-        emitted_color = "ultraviolet";
-    else if (grade: between 89 and 80, GPA = B)
-        emitted_color = "blue";
-    else if (grade: between 79 and 70, GPA = C)
-        emitted_color = "green";
-    else if (grade: between 69 and 60, GPA = D)
-        emitted_color = "red";
-    else if (grade: below 59, GPA = F)
-        emitted_color = "infrared";
-    else
-        any another grade, GPA = ""
-        
-    //print result
-     <<"a * b = "<< ( a * b )<<endl;
+    // use manipulator to set decimal precision to 2
+    cout<<fixed<<setprecision(2);
+    // print the final grade and equivalent letter GPA
+    cout<<"A final grade of "<<grade<<" is equivalent to a GPA of "<< gpa << endl;
+
     return 0;
 }
+
