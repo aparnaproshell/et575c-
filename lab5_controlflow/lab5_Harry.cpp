@@ -5,7 +5,6 @@ Sep 10, 2025
 */
 #include<iostream>
 #include<string>
-#include<iomanip>
 
 using namespace std;
 
@@ -83,11 +82,11 @@ int main(){
     float grade = 0;
 
     // collect the values for final_exam, labs, and homework
-    cout<<"Enter the final exam grade "<<endl;
+    cout<<"Enter the final exam grade: "<<endl;
     cin>>final_exam;
-    cout<<"Enter a grade for the lab "<<endl;
+    cout<<"Enter a grade for the lab: "<<endl;
     cin>>labs;
-    cout<<"Enter a grade for the homework "<<endl;
+    cout<<"Enter a grade for the homework: "<<endl;
     cin>>homework;
 
     // calculate the grade = final_exam *0.5 + labs*0.3 + homework*0.2
@@ -119,8 +118,6 @@ int main(){
         gpa = "";
     }
     
-    // use manipulator to set decimal precision to 2
-    cout<<fixed<<setprecision(2);
     // print the final grade and equivalent letter GPA
     cout<<"A final grade of "<<grade<<" is equivalent to a GPA of "<< gpa << endl;
 
