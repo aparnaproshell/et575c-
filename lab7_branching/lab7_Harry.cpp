@@ -1,69 +1,77 @@
 /*
 Aparna Harry
-Sep 17, 2025
+Sep 21, 2025
 lab 7, branching mechanism using switch-case statement
 */
-
 #include<iostream>
 #include<string>
 
 using namespace std;
 
-int main(){
+int main() {
+    // declare the variable integer and character for a number and operation
+    int FirstNumber, SecondNumber;
+    char operate;    
+    // Step 1: Prompt the first number from the user
+    cout << "Enter the first number: ";
+    cin >> FirstNumber;
+    // Step 2: Prompt the second number from the user
+    cout << "Enter the second number: ";
+    cin >> SecondNumber;
+    // Step 3: Ask the user to choose operation to perform
+    // characters addition, subtraction, multiplication, division and modulus
+    // Also option q for quit
+    cout << "Choose an operation (+,-,*,/,%,q to quit):* ";
+    cin >> operate;
+    // If the user enters 'q' or 'Q', quit program
+    // if statement and OR logical operator for q or Q
+    // return 0; to end program if user wants to quit
+    if (operate == 'q' || operate == 'Q') {
+        cout << "Quitting the program." << endl;
+        return 0;
+    }
 
-//declare variables for first and second number
-//declare variables for operation
-int FirstNumber, SecondNumber;
-char operator;
-//prompt user to enter these numbers first and second
-cout<<"Enter the first number: "<<endl;
-cin>>FirstNumber;
-
-cout<<"Enter the second number: "<<endl;
-cin>>SecondNumber;
-//prompt user to enter an operation to be performed
-cout<<"Choose an operation (+,-,*,/,%,q to quit): "<<endl;
-cin>>operator;
-
-//a switch-case will be used to perform result based on user's choice of operation
-switch(operator)
-{   // write case per each operation and its action, then result
-    case '+':
-        cout<<FirstNumber<<" + "<<SecondNumber<<" = "<< FirstNumber + SecondNumber <<endl;
-        break;
-    case '-':
-        cout<<FirstNumber<<" - "<<SecondNumber<<" = "<< FirstNumber - SecondNUmber <<endl;
-        break;
-    case '*':
-        cout<<FirstNumber<<" * "<<SecondNumber<<" = "<< FirstNumber * SecondNumber <<endl;
-        break;
-    case '/':
-        if(SecondNumber != 0)
-            cout<<FirstNumber<<" / "<<SecondNumber<<" = "<< FirstNumber / SecondNumber <<endl;
+    // Step 4: Use switch-case to perform the operation using assignment operators
+    switch (operate) {
+        case '+':
+            // addition; add FirstNumber and SecondNumber
+            cout << "Result: " << FirstNumber << " + " << SecondNumber << " = " << (FirstNumber + SecondNumber) << endl;
+            break;
+        case '-':
+            // subtraction; subtract SecondNumber from FirstNumber
+            cout << "Result: " << FirstNumber << " - " << SecondNumber << " = " << (FirstNumber - SecondNumber) << endl;
+            break;
+        case '*':
+            // multiplication; multiply values of FirstNumber and SecondNumber
+            cout << "Result: " << FirstNumber << " * " << SecondNumber << " = " << (FirstNumber * SecondNumber) << endl;
+            break;
+        case '/':
+            // division; divide FirstNumber by SecondNumber
+            // check if SecondNumber is not zero using NOT logical operator
+            // only perform division if SecondNumber is not zero; otherwise, print error message
+            if (SecondNumber != 0)
+                cout << "Result: " << FirstNumber << " / " << SecondNumber << " = " << (FirstNumber / SecondNumber) << endl;
             else
-            cout<<" / by zero not allowed. Second number cannot be zero."<<endl;
-            cout<<"Enter q to quit and exit program."<<endl;
-            cin>>operator;
-            if(operator == 'q')
-               break;
-        break;
-    case '%':
-        if(SecondNumber != 0)
-            cout<<FirstNumber<<" % "<<SecondNumber<<" = "<< FirstNumber % SecondNumber <<endl;
+                cout << "Error: Division by zero is not allowed." << endl;
+            break;
+        case 'q': case 'Q':
+            // q or Q: to quit program
+            cout << "Quitting the program." << endl;
+            break;
+        case '%':
+            // modulus; return the division remainder of FirstNumber divided by SecondNumber
+            // only perform division if SecondNumber is not zero; otherwise, print error message
+
+            if (SecondNumber != 0)
+                cout << "Result: " << FirstNumber << " % " << SecondNumber << " = " << (FirstNumber % SecondNumber) << endl;
             else
-            cout<<" % by zero not allowed. Second number cannot be zero."<<endl;
-            cout<<"Enter q to quit and exit program."<<endl;
-            cin>>operator;
-            if(operator == 'q')
-               break;
-        break;
-    default:
-        cout<<"Invalid character entered, only (+,-,*,/,%) allowed."<<endl;
-        cout<<"Enter q to quit and exit program."<<endl;
-            cin>>operator;
-            if(operator == 'q')
-               break;
-        break;
-}
+                cout << "Error: Modulus by zero is not allowed." << endl;
+            break;
+        default:
+            // Handle invalid operation input
+            cout << "Error: Invalid operation selected. Only (+, -, *, /, %, q) allowed." << endl;
+    }
+
+    //end program
     return 0;
 }
