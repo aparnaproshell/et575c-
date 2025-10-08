@@ -70,6 +70,7 @@ int main(){
             cout<<f<<"\t";
     }
     cout<<endl;
+    
 
     cout<<"\n----- EXERCISE 2: ---- "<<endl;
     int user_input = 0;
@@ -79,5 +80,6 @@ int main(){
             cout<<user_input<<endl;
     }
  
+
     return 0;
 }
