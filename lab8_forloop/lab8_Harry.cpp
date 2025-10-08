@@ -8,7 +8,6 @@ lab 8, for loop
 using namespace std;
 
 int main(){
-<<<<<<< HEAD
     cout<<"\n----- Example 1: for loop---- "<<endl;
     // print Hello five times 
     for(int action=1; action<=5; action++){
