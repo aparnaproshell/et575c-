@@ -80,8 +80,5 @@ int main(){
             cout<<user_input<<endl;
     }
  
-=======
->>>>>>> b8990094e78507a7d93e0c361cd6321233d4c990
-
     return 0;
 }
