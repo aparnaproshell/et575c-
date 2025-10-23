@@ -48,8 +48,8 @@ int main(){
 
     cout<<"\n ------ EXERCISE ------ "<<endl;
     int mod = 10;
-    bool end2;
-    modulo(mod);
+    printmodule(mod);
+
 
 
     return 0;

@@ -77,6 +77,14 @@ void printnumber(string n){
 }
 
 // EXERCISE
-if (modulo(mod%2==0))
-    return end2;
-    cout<<"Is "<<modulo<<"even? "<<end2<<endl;
+bool modulostick(int mod){
+    if (mod%2==0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+void printmodule(int mod){
+    cout<<"Is "<<mod<<" even? "<<modulostick(mod)<<endl;
+}
