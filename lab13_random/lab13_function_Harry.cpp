@@ -36,7 +36,7 @@ int random_neg10_5(){
 // EXERCISE 
 // function that generates a random number between 
 int random_1_6(){
-    return 1 + rand()%7;
+    return 1 + rand()%6;
 }
 
 // function to compare if two numbers are 1s
