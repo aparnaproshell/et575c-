@@ -107,34 +107,27 @@ void looparray(){
 
 // EXERCISE
 void exercise(){
-    // declare an array with five values
+    // Declare an array with 5 values ==> fixed length array
     int scores[5];
 
-    // assigning/accessing individual cells in an array
-    scores[0] = 60; // first value has index 0
-    scores[1] = 30;
+    // Assign value to each item in array 'scores'
+    scores[0] = 60;
+    scores[1] = 90;
     scores[2] = 75;
-    scores[3] = 79;
-    scores[4] =98;
+    scores[3] = 88;
+    scores[4] = 100;
 
-    // set maximum score
-    int maxscore = scores[0];
-    int count = 0;
-    int m;
-    for( m = 0; m<=maxscore; m++){ 
-    cout<<scores[m]<<"\t";
-        if (scores[m].length <=scores[m].length ){
-            count ++;
-        }
-        else if (scores[m].length()==scores[m].length ){
-            int ml;
-            count = ml;
-            break;
+    // Initialize maximum score to the first element
+    int maxScore = scores[0];
+    
+    // Loop through the array to find the maximum score
+    for (int i = 1; i < 5; i++) {
+        // If current element is greater than maxScore, update maxScore
+        if (scores[i] > maxScore) {
+            maxScore = scores[i];
         }
     }
-    cout<<endl;
-    cout<<"The maximum score is "<<ml<<endl;
-
-
-
+    
+    // Display the result
+    cout << "The maximum score is " << maxScore << endl;
 }
