@@ -1,5 +1,5 @@
 /*
-Aparna Harry
+Aparna Harry et575h1b
 lab 16, array in a function
 Nov 17, 2025
 */
@@ -35,7 +35,7 @@ int main(){
     cout<<"\n----- EXERCISE ----"<<endl;
     // initialize variables and array
     int arr_number[] ={6, -10, 9, 12, -3, -8, 5, 7, 4, 0};
-    
+
 
     return 0;
 }
