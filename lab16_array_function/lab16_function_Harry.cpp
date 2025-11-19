@@ -71,6 +71,26 @@ void printresult(int resultsearch, int target){
 }
 
 // EXERCISE
-// function that returns the sum of all even numbers in an array
+// function that sums all even numbers in an array and returns the sum
+int sumEvenNumbers(const int arr[], int size){
+    int sum = 0;
+    // loop through the array to find even numbers
+    for(int i = 0; i < size; i++){
+        if(arr[i] % 2 == 0){  // check if number is even
+            sum += arr[i];     // add even number to sum
+        }
+    }
+    return sum;  // return the total sum of even numbers
+}
 
-// function that returns the counts of all negative number in an array
+// function that counts all negative numbers in an array and returns the count
+int countNegativeNumbers(const int arr[], int size){
+    int count = 0;
+    // loop through the array to find negative numbers
+    for(int i = 0; i < size; i++){
+        if(arr[i] < 0){       // check if number is negative
+            count++;           // increment count
+        }
+    }
+    return count;  // return the total count of negative numbers
+}
