@@ -4,6 +4,8 @@ Nov 19, 2025
 lab 17, 2D array
 */
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -53,50 +55,69 @@ void print_array(int arr[][3], int rowsize, int colsize){
 // example 4: function that sum all the numbers in a 2D array and returns the total sum
 int sum_all(int arr[][3], int rowsize, int colsize){
     int sum = 0;
-    for (int row = 0; row < rowsize; row++){
+        for (int row = 0; row < rowsize; row++){
         for (int col = 0; col < colsize; col++){
             sum += arr[row][col];
         }
-        
-        return sum;
+    }
+    return sum;
     }
 
     // example 5: function that returns the total of odd numbers in a 2D array 
     int total_odd(int arr[][3], int rowsize, int colsize){
         int sum_odd = 0;
-        for (int row = 0; row < rowsize; row++){
+            for (int row = 0; row < rowsize; row++){
             for (int col = 0; col < colsize; col++){
                 if (arr[row][col] % 2 ==1 && arr[row][col] !=0 ){
-                    counter_odd ++;
+                    sum_odd ++;
                 } 
             }
         }
 
-        return counter_odd;
-    }
+        return sum_odd;
+}
 
-    // EXERCISE
-    void populate_array(int arr[3][4], int rowsize. int colsize){
-        for(int row = 0; row<rowsize; row++){
-            for(int col = 0; col<colsize; col++){
-                int n;
-                cout<<"Enter a number: ";
-                cin>>n;
-                arr[row][col] = n;
-            }
-            srand(time(0));
-            return 0 + rand()%100;
+// EXERCISE: Lab 17 - Random Number Array with Average Calculation
+
+// Function to populate a 3x4 array with random numbers between 0 and 100
+void populate(int arr[][4], int rowsize, int colsize){
+    // Seed the random number generator with current time
+    srand(time(0));
+    // Loop through each row
+    for(int row = 0; row < rowsize; row++){
+        // Loop through each column
+        for(int col = 0; col < colsize; col++){
+            // Assign a random number between 0 and 100 to each cell
+            arr[row][col] = rand() % 101;  // Generate random number 0-100
         }
-        cout<<endl;
-    
-    void average_array(int arr[3][4], int rowsize, int colsize){
-        int sum = 0;
-        for (int row = 0; row < rowsize; row++){
-            for (int col = 0; col < colsize; col++){
-                sum += arr[row][col];
-            }
-        }
-        int average = sum / (rowsize * colsize);
-        cout<<"The average is: "<<average<<endl;
-        
     }
+}
+
+// Function to calculate and return the average of all numbers in the array
+double average(int arr[][4], int rowsize, int colsize){
+    int sum = 0;  // Initialize sum to 0
+    // Loop through each row
+    for (int row = 0; row < rowsize; row++){
+        // Loop through each column
+        for (int col = 0; col < colsize; col++){
+            // Add each element to the sum
+            sum += arr[row][col];
+        }
+    }
+    // Calculate and return average by dividing sum by total number of elements
+    return (double)sum / (rowsize * colsize);
+}
+
+// Function to display the array
+void display_array(int arr[][4], int rowsize, int colsize){
+    // Loop through each row
+    for(int row = 0; row < rowsize; row++){
+        // Loop through each column
+        for(int col = 0; col < colsize; col++){
+            // Print each element followed by a tab
+            cout << arr[row][col] << "\t";
+        }
+        // Move to next line after each row
+        cout << endl;
+    }
+}
