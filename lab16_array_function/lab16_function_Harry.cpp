@@ -1,111 +1,96 @@
 /*
 Aparna Harry
-Nov 19, 2025
-lab 17, 2D array
+lab 16, array in a function
+Nov 17, 2025
 */
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+
+#include<iostream>
 
 using namespace std;
 
-// example 1: declaring a 2D array
-void array_dec() {
-    int array[3][5] ={
-        {5 ,10},
-        {-2, -9},
-        {6},
-    };
-
-    cout<<"3rd element in the second row "<<array[1][2]<<endl;
-}
-
-// example 2, function to print each value in a 2D array
-const int NUMCOLS = 5;
-void print2d(int a[][NUMCOLS], int rowsize){
-    for (int row = 0; row <rowsize; row ++){
-        for (int col = 0; col<NUMCOLS; col++){
-            cout<<a[row][col]<<"\t";
-        }
-        cout<<endl;
-    }    
-}
-
-// example 3, define a function to populate a 2D array
-void populate_array(int arr[][3], int rowsize, int colsize){
-    for(int row = 0; row<rowsize; row++){
-        for(int col = 0; col<colsize; col++){
-            int n;
-            cout<<"Enter a number: ";
-            cin>>n;
-            arr[row][col] = n;
-        }
+// example 1: function to populate an array with numbers
+// the numbers are collected from the user
+void fillup(int sizearray, int arr[]){
+    for (int i = 0; i < sizearray; i++){
+        cout<<"Enter a number: ";
+        cin>>arr[i];
     }
-}
+    cout<<endl;
 
-void print_array(int arr[][3], int rowsize, int colsize){
-    for(int row = 0; row<rowsize; row++){
-        for(int col = 0; col<colsize; col++){
-            cout<<arr[row][col]<<"\t";
-        }
-        cout<<endl;
+}
+// function to print values  in an array
+void printarray(int sizearray, int arr[]){
+    for(int i = 0; i<sizearray; i++){
+        cout<<arr[i]<<"\t";
     }
+    cout<<endl;
 }
 
-// example 4: function that sum all the numbers in a 2D array and returns the total sum
-int sum_all(int arr[][3], int rowsize, int colsize){
+// example 2: collect positive numbers (max 10 numbers), and search if a number exists amount the collected numbers
+// function to collect non-negative number (max 20 numbers). If a negative number is entered, the function will stop, 
+const int ARRAY_SIZE = 10;
+
+void fillarray(int *arr, int &numberuserindex){
+    int number, index = 0;
+
+    do{
+        cout<<"Enter a positive number: ";
+        cin>>number;
+        if(number>0){
+            arr[index] = number;
+            index ++;
+        }
+    }while(number>0 && index< ARRAY_SIZE);
+    
+    // update the value of variable numberuserindex, which is the last index of all positive numbers
+    numberuserindex = index;
+}
+
+// search function to search for a number in the array
+int search(const int *arr, int numberusedindex, int target ){
+    int index = 0;
+    bool found = false;
+
+    while ((!found) && (index<numberusedindex)){
+        if(target == arr[index])
+            found = true;
+        else
+            index++;
+    }
+
+    if(found)
+        return index; // return the index where the target number is found
+    else
+        return -1; // return -1 if the target number is not found
+}
+
+// function to print result 
+void printresult(int resultsearch, int target){
+    cout<<"What is the index of number "<<target<<" in the array? "<<resultsearch<<endl;
+    
+}
+
+// EXERCISE
+// function that sums all even numbers in an array and returns the sum
+int sumEvenNumbers(const int arr[], int size){
     int sum = 0;
-        for (int row = 0; row < rowsize; row++){
-        for (int col = 0; col < colsize; col++){
-            sum += arr[row][col];
+    // loop through the array to find even numbers
+    for(int i = 0; i < size; i++){
+        if(arr[i] % 2 == 0){  // check if number is even
+            sum += arr[i];     // add even number to sum
         }
     }
-    return sum;
-    }
-
-    // example 5: function that returns the total of odd numbers in a 2D array 
-    int total_odd(int arr[][3], int rowsize, int colsize){
-        int sum_odd = 0;
-            for (int row = 0; row < rowsize; row++){
-            for (int col = 0; col < colsize; col++){
-                if (arr[row][col] % 2 ==1 && arr[row][col] !=0 ){
-                    sum_odd ++;
-                } 
-            }
-        }
-
-        return sum_odd;
+    return sum;  // return the total sum of even numbers
 }
 
-// EXERCISE: Lab 17 - Random Number Array with Average Calculation
-
-// Function to populate a 3x4 array with random numbers between 0 and 100
-void populate(int arr[][4], int rowsize, int colsize){
-    srand(time(0));
-    for(int row = 0; row < rowsize; row++){
-        for(int col = 0; col < colsize; col++){
-            arr[row][col] = rand() % 101;  // Generate random number 0-100
+// function that counts all negative numbers in an array and returns the count
+int countNegativeNumbers(const int arr[], int size){
+    int count = 0;
+    // loop through the array to find negative numbers
+    for(int i = 0; i < size; i++){
+        if(arr[i] < 0){       // check if number is negative
+            count++;           // increment count
         }
     }
-}
-
-// Function to calculate and return the average of all numbers in the array
-double average(int arr[][4], int rowsize, int colsize){
-    int sum = 0;
-    for (int row = 0; row < rowsize; row++){
-        for (int col = 0; col < colsize; col++){
-            sum += arr[row][col];
-        }
-    }
-    return (double)sum / (rowsize * colsize);
-}
-
-// Function to display the array
-void display_array(int arr[][4], int rowsize, int colsize){
-    for(int row = 0; row < rowsize; row++){
-        for(int col = 0; col < colsize; col++){
-            cout << arr[row][col] << "\t";
-        }
-        cout << endl;
-    }
+    return count;  // return the total count of negative numbers
 }

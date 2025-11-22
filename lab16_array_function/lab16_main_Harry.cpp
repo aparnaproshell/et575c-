@@ -1,68 +1,49 @@
 /*
-Aparna Harry
-Nov 19, 2025
-lab 17, 2D array
+Aparna Harry et575h1b
+lab 16, array in a function
+Nov 17, 2025
 */
-#include <iostream>
-#include "lab17_function_harry.cpp"
+
+#include<iostream>
+
+#include"lab16_function_Harry.cpp"
 using namespace std;
 
-int main() {
-    cout<<"\n --- example 1: array declarations ---"<<endl;
-    array_dec();
+int main(){
+    cout<<"\n----- Example 1: collect and populate data into an array ----"<<endl;
+    // intialize variables and array
+    int arraysize = 3;
+    int arrnum[arraysize];
 
-    cout<<"\n --- example 2: print each value in a 2D array ---"<<endl;
-    const int NUMCOLS = 5;
-    int ar[3][NUMCOLS] ={
-        {5, 10},
-        {-2, -9},
-        {6}
-    };
-    
-    print2d(ar,3);
+    // calling functions
+    fillup(arraysize, arrnum);
+    printarray(arraysize, arrnum);
 
-    cout<<"\n --- example 3:populating an array with numbers ---"<<endl;
-    // declare a 2D array
-    int arr_num[2][3];
+    cout<<"\n----- Example 2: program to search a number in an array ----"<<endl;
+    // initialize variables and array
+    int arr_pos_numbers[ARRAY_SIZE];
+    int listsize = 0;
+    int targetnumber = 8;
 
-    // call the function
-    populate_array(arr_num, 2, 3);
-    print_array(arr_num, 2, 3);
+    // calling functions 
+    fillarray(arr_pos_numbers, listsize);
+    printarray(listsize, arr_pos_numbers); // testing if the positive numbers were properly collected
+    int resultsearch = search(arr_pos_numbers, listsize, targetnumber);
 
-    cout<<"\n --- example 4: sum of all numbers in a 2D array ---"<<endl;
-    int s = sum_all(arr_num, 2, 3);
-    cout<<"The total sum "<<s<<endl;
+    printresult(resultsearch,targetnumber );
 
-    cout<<"\n --- example 5:odd numbers in a 2D array ---"<<endl;
-    int c = total_odd(arr_num, 2, 3);
-    cout<<"Total odd numbers = "<<c<<endl;
+    cout<<"\n----- EXERCISE ----"<<endl;
+    // initialize variables and array
+    int arr_number[] ={6, -10, 9, 12, -3, -8, 5, 7, 4, 0};
+    int arraySize = 10;
 
-    cout<<"\n --- EXERCISE: Random Array with Average ---"<<endl;
-    cout<<"\n"<<endl;
-    char choice;
-    
-    do {
-        // Create 3x4 array
-        int numbers[3][4];
-        
-        // Populate with random numbers
-        populate(numbers, 3, 4);
-        
-        // Display the array
-        
-        cout<<"\n------ // ------- // ------- // -------"<<endl;
-        display_array(numbers, 3, 4);
-        
-        // Calculate and display average
-        double avg = average(numbers, 3, 4);
-        cout << "\nAverage = " << avg << endl;
-        
-        // Ask for another run
-        cout << "\nAnother run? (y/n): ";
-        cin >> choice;
-        
-    } while (choice == 'y' || choice == 'Y');
-    
-    
+    // call function to sum all even numbers
+    int evenSum = sumEvenNumbers(arr_number, arraySize);
+    cout<<"Sum of all even numbers: "<<evenSum<<endl;
+
+    // calling function to count all negative numbers in the array
+    int negativeCount = countNegativeNumbers(arr_number, arraySize);
+    cout<<"The count of negative numbers is: "<<negativeCount<<endl;
+
     return 0;
 }
